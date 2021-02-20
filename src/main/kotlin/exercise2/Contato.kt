@@ -2,9 +2,8 @@ package exercise2
 
 class Contato() {
 
-//    var contactsList: MutableMap<String, String> = mutableMapOf()
-//    var contactsList: MutableMap<String, String> = mutableMapOf("giulia" to "010101")
-    var contactsList: MutableMap<String, String> = mutableMapOf("010101" to "giulia", "020202" to "henrique", "030303" to "cristina", "040404" to "giulia")
+    var contactsList: MutableMap<String, String> = mutableMapOf()
+//    var contactsList: MutableMap<String, String> = mutableMapOf("010101" to "giulia", "020202" to "henrique", "030303" to "cristina", "040404" to "giulia")
 
     fun saveContact(name: String, phone: String): String {
 
@@ -13,7 +12,6 @@ class Contato() {
 
         if (!existingContact) {
             contactsList.put(phone, name.toLowerCase())
-            println(contactsList)
             message = "New contact added to your contacts list!"
         } else {
             message = "This contact already exists!"
@@ -22,8 +20,19 @@ class Contato() {
         return message
     }
 
-    fun removeContact(): String {
-        return "remove contact"
+    fun removeContact(removeName: String, removePhone: String): String {
+
+        var existingContact : Boolean = checkContact(name = removeName, phone =  removePhone)
+        var message : String
+
+        if (existingContact) {
+            contactsList = contactsList.minus(key = removePhone).toMutableMap()
+            message = "The contact was successfully deleted!"
+        } else {
+            message = "There is no such contact in the contact list, so no data was removed!"
+        }
+
+        return message
     }
 
     fun searchContact(searchName: String) {
@@ -39,8 +48,11 @@ class Contato() {
 
     fun showAllContacts() {
 
-        println(contactsList.map { (phone, name) -> "\n Name: ${name.capitalize()} - Phone: $phone" })
-
+        if (contactsList.isNotEmpty()) {
+            println(contactsList.map { (phone, name) -> "\n Name: ${name.capitalize()} - Phone: $phone" })
+        } else {
+            println("No data in your contact list!")
+        }
     }
 
     fun checkContact(name: String, phone: String) : Boolean {
@@ -54,5 +66,9 @@ class Contato() {
         }
 
         return isContact
+    }
+
+    fun getListLength() : Int {
+        return contactsList.size
     }
 }

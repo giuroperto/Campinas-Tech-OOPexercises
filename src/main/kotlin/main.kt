@@ -28,7 +28,7 @@ fun testEx1() {
 }
 
 fun testEx2() {
-    openContacts(0)
+    openContacts()
 }
 
 fun testEx3() {
