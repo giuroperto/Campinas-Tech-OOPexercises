@@ -6,7 +6,7 @@ fun main() {
 //    testEx1()
 
     // Exercise 2
-    testEx2()
+//    testEx2()
 
     // Exercise 3
 //    testEx3()

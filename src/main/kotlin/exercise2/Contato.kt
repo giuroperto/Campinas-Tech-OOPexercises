@@ -3,14 +3,14 @@ package exercise2
 class Contato() {
 
     var contactsList: MutableMap<String, String> = mutableMapOf()
-//    var contactsList: MutableMap<String, String> = mutableMapOf("010101" to "giulia", "020202" to "henrique", "030303" to "cristina", "040404" to "giulia")
 
     fun saveContact(name: String, phone: String): String {
 
         var existingContact : Boolean = checkContact(name = name, phone =  phone)
         var message : String
+        var existingPhone : Boolean = contactsList.containsKey(phone)
 
-        if (!existingContact) {
+        if (!existingPhone && !existingContact) {
             contactsList.put(phone, name.toLowerCase())
             message = "New contact added to your contacts list!"
         } else {

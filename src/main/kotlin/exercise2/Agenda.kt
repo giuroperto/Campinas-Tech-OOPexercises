@@ -1,18 +1,16 @@
 package exercise2
 
-// TODO: 19/02/2021 remove listSize from function + fix add and remove contact
-
 var globalListLength : Int = 0
+var globalContact = Contato()
 
 
 fun openContacts() {
     var isFull : Boolean = false
     var doContinue : Int = 0
 
-    println("List Size $globalListLength")
-
     while (doContinue != 1) {
-        if (globalListLength >= 9) {
+        
+        if (globalListLength >= 10) {
             isFull = true
 
             println("#####################################################")
@@ -20,7 +18,10 @@ fun openContacts() {
             println("#                     CONTACTS                      #")
             println("#                                                   #")
             println("#####################################################")
-            println("Welcome! Unfortunately your contacts list has reached its limit, hence you cannot add a new contact until you delete one.")
+            println("Welcome!")
+            println("")
+            println("!!! Unfortunately your contacts list has reached its limit, hence you cannot add a new contact until you delete one.")
+            println("")
             println("Choose one of the following to proceed:")
             println("2 - Delete contact")
             println("3 - Search contact")
@@ -87,13 +88,13 @@ fun saveContactScreen() {
     println("And the phone?")
     var contactPhone : String = readLine() ?: "You need to inform a phone in order to proceed"
 
-    var newContact : String = Contato().saveContact(name = contactName, phone = contactPhone)
+    var newContact : String = globalContact.saveContact(name = contactName, phone = contactPhone)
     println("")
     println("------------------------------------------------")
     println(newContact)
 
-    globalListLength = Contato().getListLength()
-    println(globalListLength)
+    globalListLength = globalContact.getListLength()
+    println("Number of contacts: $globalListLength")
 
 }
 
@@ -110,13 +111,13 @@ fun deleteContactScreen() {
     println("And what is this person's phone?")
     var contactPhone : String = readLine() ?: "You need to inform a phone in order to proceed"
 
-    var deletedContact : String = Contato().removeContact(removeName = contactName, removePhone = contactPhone)
+    var deletedContact : String = globalContact.removeContact(removeName = contactName, removePhone = contactPhone)
     println("")
     println("------------------------------------------------")
     println(deletedContact)
 
-    globalListLength = Contato().getListLength()
-    println(globalListLength)
+    globalListLength = globalContact.getListLength()
+    println("Number of contacts: $globalListLength")
 
 }
 
@@ -131,7 +132,7 @@ fun searchContactScreen() {
 
     var contactName : String = readLine() ?: "You need to inform a name in order to proceed"
 
-    Contato().searchContact(contactName)
+    globalContact.searchContact(contactName)
 }
 
 fun showContactScreen() {
@@ -142,5 +143,5 @@ fun showContactScreen() {
     println("#                                                   #")
     println("#####################################################")
 
-    Contato().showAllContacts()
+    globalContact.showAllContacts()
 }
