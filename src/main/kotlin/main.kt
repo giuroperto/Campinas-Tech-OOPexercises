@@ -1,15 +1,16 @@
 import exercise1.Pessoa
 import exercise2.openContacts
+import exercise3.openSystem
 
 fun main() {
     // Exercise 1
-//    testEx1()
+    testEx1()
 
     // Exercise 2
-//    testEx2()
+    testEx2()
 
     // Exercise 3
-//    testEx3()
+    testEx3()
 
 }
 
@@ -32,10 +33,5 @@ fun testEx2() {
 }
 
 fun testEx3() {
-
+    openSystem()
 }
-
-//numbersMap.put("three", 3)
-//numbersMap["one"] = 11
-//
-//println(numbersMap)
