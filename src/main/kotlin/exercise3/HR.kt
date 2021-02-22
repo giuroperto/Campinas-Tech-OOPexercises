@@ -2,11 +2,6 @@ package exercise3
 
 var employeesPosition: MutableMap<String, Int> = mutableMapOf()
 var employeesList: MutableList<Funcionario> = mutableListOf()
-//var employeesPosition: MutableMap<String, Int> = mutableMapOf("g12" to 0, "h12" to 1, "c12" to 2)
-//var Giulia : Programador = Programador("g12", "Giulia", "0909", 100.00)
-//var Henrique : Gestor = Gestor("h12", "Henrique", "0901", 99.00)
-//var Cristina : Gestor = Gestor("c12", "Cristina", "0902", 101.00)
-//var employeesList: MutableList<Funcionario> = mutableListOf(Giulia, Henrique, Cristina)
 var arrPosition: Int = 0
 
 fun openSystem() {
@@ -50,8 +45,6 @@ fun openSystem() {
         }
     }
 }
-
-// TODO: 20/02/2021 finish addNewEmployee fn
 
 fun addNewEmployee() {
     println("#####################################################")
